@@ -1,65 +1,35 @@
-MOTION MINIPC
--------------------------------
+# MOTION MINIPC
 
-cmd
---------------------------------
-sudo systemctl start motion
-sudo systemctl stop motion
-sudo nano /etc/motion/motion.conf
-cat /var/log/motion/motion.log
+## Steps
+- Create and mount HDD
+- (optional) Create and mount Ramdisk. Movies are written on ramdisk and when movie_end event is trigger a thumbnail is created and this file and the thumbnail are moved to HDD
+- Install and configure motion (see conf.d)
+- Install and configure ffmpeg
+- (optional) Install miniDlna for accessing your videos
 
-paths
-------------------------------
-/media/ramdisk
-/media/hdd2/Camara/Recordings/
+## Permissions
+- -rwxrwxr-x   1 motion motion  1050 Jan 20 15:19 camaras.sh*
+- drwxr-xr-x   3 root root 4096 Jan 18 15:25 hdd2/
+- drwxrwxrwt   2 root root   40 Jan 20 19:43 ramdisk/
 
-bash script movefile.sh
--------------------------
-#!/bin/bash
+## Useful commands
+- sudo systemctl start motion
+- sudo systemctl stop motion
+- sudo nano /etc/motion/motion.conf
+- cat /var/log/motion/motion.log
 
-# Path to the folder containing the videos and images
-ROOT_FOLDER="/media/hdd2/Camara/Recordings/"
+## Paths
+- /etc/motion/motion.conf
+- /etc/motion/camaras.sh
+- /media/ramdisk/
+- /media/hdd2/Camara/Recordings/
+- /var/log/motion/motion.log
 
-# move file from ramdisk to hdd
-mv "$1" "$ROOT_FOLDER"
+## Trigger Events
+- http://192.168.0.195:8080/0/action/eventstart
+- http://192.168.0.195:8080/0/action/eventend
 
-# Change to the root directory
-cd "$ROOT_FOLDER" || exit 1
-
-# Iterate over both .mp4 and .jpg files in the folder
-for FILE in *.mp4; do
-    # Check if the file exists (to handle cases where no .mp4 or .jpg files are found)
-    if [ -e "$FILE" ]; then
-        # Extract the filename without extension
-        FILENAME="${FILE%.*}"
-
-        # Extract the date from the filename (format: 0-01-YYYYMMDDHHMMSS.mp4 or .jpg)
-        DATE=$(echo "$FILE" | grep -oP '\d{8}' | head -n 1)
-
-        # Format the date as YYYY-MM-DD
-        DAY="${DATE:0:4}-${DATE:4:2}-${DATE:6:2}"
-
-        # Create the subfolder if it doesn't exist
-        mkdir -p "$DAY"
-
-        # Move the file to the corresponding subfolder
-        mv "$FILE" "$DAY/"
-
-        FULL_PATH="$(realpath "$DAY/$FILE")"
-
-        #generate thumbnail
-        ffmpeg -i "$FULL_PATH" -frames:v 1 "$DAY"/"$FILENAME".jpg
-    fi
-done
--------------------------
-
-simular eventos
-----------------------------------------
-http://192.168.0.195:8080/0/action/eventstart
-http://192.168.0.195:8080/0/action/eventend
-
-docs
--------------------------------------
-https://motion-project.github.io/motion_config.html
-https://www.linuxbabe.com/command-line/create-ramdisk-linux
-https://goughlui.com/2020/10/03/review-escam-pvr008-full-hd-h-265-pan-tilt-wireless-ip-camera/
+## References / Docs
+- https://motion-project.github.io/motion_config.html
+- https://www.linuxbabe.com/command-line/create-ramdisk-linux
+- https://goughlui.com/2020/10/03/review-escam-pvr008-full-hd-h-265-pan-tilt-wireless-ip-camera/
