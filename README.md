@@ -1,10 +1,10 @@
 # MOTION MINIPC
 
 ## Steps
-- Create and mount HDD
+- Create and mount HDD (for storing movies)
 - (optional) Create and mount Ramdisk. Movies are written on ramdisk and when movie_end event is trigger a thumbnail is created and this file and the thumbnail are moved to HDD
 - Install and configure motion (see conf.d)
-- Install and configure ffmpeg
+- Install and configure ffmpeg (for thumbnails)
 - (optional) Install miniDlna for accessing your videos
 
 ## Permissions
