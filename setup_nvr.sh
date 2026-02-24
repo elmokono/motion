@@ -111,7 +111,8 @@ log_level 6
 
 target_dir /media/ramdisk
 
-netcam_url rtsp://192.168.0.222/live/0
+netcam_url rtsp://192.168.0.222/live/0/sub
+netcam_high_url rtsp://192.168.0.222/live/0/main
 
 width 1280
 height 720
