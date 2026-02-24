@@ -118,10 +118,11 @@ height 720
 framerate 30
 
 threshold 1500
-minimum_motion_frames 2
-event_gap 10
+minimum_motion_frames 1
+event_gap 60
 pre_capture 5
-post_capture 60
+post_capture 300
+despeckle_filter EedDl
 
 movie_output on
 movie_max_time 60
