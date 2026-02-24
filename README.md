@@ -7,11 +7,6 @@
 - Install and configure ffmpeg (for thumbnails)
 - (optional) Install miniDlna for accessing your videos
 
-## Permissions
-- -rwxrwxr-x   1 motion motion  1050 Jan 20 15:19 camaras.sh*
-- drwxr-xr-x   3 root root 4096 Jan 18 15:25 hdd2/
-- drwxrwxrwt   2 root root   40 Jan 20 19:43 ramdisk/
-
 ## Useful commands
 - sudo systemctl start motion
 - sudo systemctl stop motion
