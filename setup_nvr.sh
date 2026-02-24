@@ -111,11 +111,11 @@ log_level 6
 
 target_dir /media/ramdisk
 
-netcam_url rtsp://192.168.0.222/live/0/sub
+netcam_url rtsp://192.168.0.222/live/0
 
-width 800
-height 448
-framerate 0
+width 1280
+height 720
+framerate 30
 
 threshold 1500
 minimum_motion_frames 2
