@@ -84,7 +84,7 @@ sleep 1
 JPG="${FINAL_PATH%.*}.jpg"
 
 if [ ! -f "$JPG" ]; then
-    timeout 10s /usr/bin/ffmpeg -y -i "$FINAL_PATH" -frames:v 1 "$JPG" >> $LOG 2>&1
+    timeout 10s /usr/bin/ffmpeg -y -i "$FINAL_PATH" -frames:v 1 -update 1 "$JPG"
 fi
 
 echo "$(date) DONE $FINAL_PATH" >> $LOG
@@ -121,7 +121,7 @@ framerate 30
 threshold 1500
 minimum_motion_frames 1
 event_gap 60
-pre_capture 5
+pre_capture 90
 post_capture 300
 despeckle_filter EedDl
 
