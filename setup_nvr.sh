@@ -77,6 +77,23 @@ mkdir -p "$FINAL_DIR"
 
 FINAL_PATH="$FINAL_DIR/$BASENAME"
 
+FIRST_KEYFRAME_TIME=$(ffprobe -v error -select_streams v:0 \
+  -show_frames -show_entries frame=pict_type,best_effort_timestamp_time \
+  -of csv=p=0 "$FINAL_PATH" \
+  | awk -F',' '$1=="I" {print $2; exit}')
+
+if [ -n "$FIRST_KEYFRAME_TIME" ]; then
+  TRIMMED="${FINAL_PATH%.mp4}_clean.mp4"
+
+  /usr/bin/ffmpeg -y \
+    -ss "$FIRST_KEYFRAME_TIME" \
+    -i "$FINAL_PATH" \
+    -c copy \
+    "$TRIMMED"
+
+  mv "$TRIMMED" "$FINAL_PATH"
+fi
+
 mv "$TARGET" "$FINAL_PATH" || exit 1
 
 sleep 1
