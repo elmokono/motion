@@ -1,0 +1,21 @@
+[Unit]
+# ntfs3 (driver del kernel) se niega a montar un volumen NTFS marcado como dirty,
+# a diferencia de ntfs-3g, que lo montaba igual. Un apagado no limpio deja el flag
+# puesto y el disco no monta en el arranque: los servicios quedan "active" pero
+# apuntando a un directorio vacio de la SD.
+# Esta unidad limpia el flag antes de montar. Corre con el volumen desmontado.
+Description=Limpia el flag dirty de NTFS antes de montar /media/hdd2
+DefaultDependencies=no
+After=blockdev@dev-sda1.target
+Before=media-hdd2.mount
+ConditionPathExists=/dev/sda1
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/ntfsfix -d /dev/sda1
+# Que un fallo de ntfsfix no impida el intento de montaje.
+SuccessExitStatus=0 1
+
+[Install]
+WantedBy=media-hdd2.mount

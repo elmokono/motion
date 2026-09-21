@@ -1,0 +1,13 @@
+[Unit]
+Description=Ejecuta el chequeo de red cada minuto
+
+[Timer]
+# Arranca 2 min despues del boot: le da margen al router para volver tras un
+# corte de luz antes de empezar a contar fallos.
+OnBootSec=2min
+OnUnitActiveSec=1min
+AccuracySec=10s
+Unit=net-watchdog.service
+
+[Install]
+WantedBy=timers.target

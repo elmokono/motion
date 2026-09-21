@@ -1,0 +1,11 @@
+[Unit]
+Description=Ejecuta la limpieza de grabaciones una vez por dia
+
+[Timer]
+OnCalendar=*-*-* 04:30:00
+Persistent=true
+RandomizedDelaySec=10min
+Unit=retencion-grabaciones.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Chequea la red y la recupera si se cayo
+After=NetworkManager.service
+Documentation=file:/usr/local/sbin/net-watchdog.sh
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/net-watchdog.sh
+# Los valores se pueden ajustar sin tocar el script.
+Environment=GATEWAY=192.168.0.1
+Environment=IFACE=wlan0
+Environment=FALLOS_SOFT=3
+Environment=FALLOS_HARD=10

@@ -1,0 +1,5 @@
+proc            /proc           proc    defaults          0       0
+PARTUUID=e6d264fd-01  /boot/firmware  vfat    defaults          0       2
+PARTUUID=e6d264fd-02  /               ext4    defaults,noatime  0       1
+UUID=0CD6ADE6D6ADD06E /media/hdd2 ntfs3 defaults,nofail,uid=motion,gid=motion,umask=000,noatime 0 0
+tmpfs /media/ramdisk tmpfs size=500M,noatime 0 0

@@ -1,0 +1,13 @@
+[Unit]
+Description=Video Security Tagger (Gemini API)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/opt/video_tagger/venv/bin/python /opt/video_tagger/tagger.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

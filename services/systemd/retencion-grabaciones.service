@@ -1,0 +1,11 @@
+[Unit]
+Description=Borra grabaciones mas viejas que la retencion configurada
+After=media-hdd2.mount
+Requires=media-hdd2.mount
+
+[Service]
+Type=oneshot
+Environment=DIAS_RETENCION=180
+ExecStart=/usr/local/sbin/retencion-grabaciones.sh --aplicar
+Nice=10
+IOSchedulingClass=idle

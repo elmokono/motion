@@ -1,0 +1,15 @@
+# Tarballs de backup: pesados y con secretos (API keys, credenciales RTSP)
+backups/*.tar.gz
+backups/*.tar.gz.sha256
+# Los backups de archivos sueltos (backups/pre-*/) SI se versionan
+
+# Artefactos del server que no se versionan
+venv/
+__pycache__/
+*.pyc
+
+# Copias .bak — para eso está git
+*.bak
+*.bak-
+*.bak-last
+*.bak.*

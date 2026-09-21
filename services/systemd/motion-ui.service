@@ -1,0 +1,16 @@
+[Unit]
+Description=Motion UI Web Dashboard
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/motion-ui
+# Credenciales del Basic Auth para accesos desde fuera de la LAN.
+# El "-" lo hace opcional: si falta el archivo el servicio arranca igual, pero
+# los accesos externos quedan rechazados (falla cerrado).
+EnvironmentFile=-/etc/motion-ui.env
+ExecStart=/usr/bin/python3 /opt/motion-ui/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

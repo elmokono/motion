@@ -1,0 +1,12 @@
+[Unit]
+Description=Motion UI Web Dashboard
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/motion-ui
+ExecStart=/usr/bin/python3 /opt/motion-ui/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

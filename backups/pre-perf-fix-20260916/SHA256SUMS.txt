@@ -1,0 +1,10 @@
+01f222fc21082c63331d08da5ad3a0ce70dce06b17edfa9937e8e0a799f8853e */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/app.py
+279d37fb4d3a8284d16e8f9ca8a2357ca22853db1b4b027696fad37606845a82 */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/camaras.sh
+e8cc209a388bbdd15ca39a783763ddc4ecb0cda38555c56086b1c4f16fca31ef */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/fstab
+ff733327bff01c9b4498ceced056f8a9deb4e097704ef1d9a3d85fb2ec9ef04c */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/index.html
+150ce3c2ddd496443de12dbb716a816709e57f7b4ccffd0cdbcb18940f97dd8b */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/motion-ui.service
+e07feefcbec8fec67d23c4a830fac5b92950f3e16f94c6b724509fa8f948e93f */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/motion.conf
+697142b64a2044347c84952a6aa6af7d8137a4cce05809fd2ec6879149eafd7f */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/motion.service
+a3ebb41d329215121bfe22b9ce71723dde4f7b11fa97b6dea1019d51a3ede97b */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/mount-state.txt
+24b3da02ca90ab4e1bac647652d5d053cc94041cb9e184a99c21b83c6047b9b1 */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/tagger.py
+dc7dbe506facdcae9c7a53e32b0a3e6932a331f8f863a76d4787bfe9a0d8726c */c/Users/daniel/source/repos-personal/motion/backups/pre-perf-fix-20260916/video_tagger.service
